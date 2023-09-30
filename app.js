@@ -11,7 +11,7 @@ app.use(express.json());
 
 /*******IMPORTANT NOTE&***********
  * I am usng local local variables to store data, due to not having an active MySQL server
- * I have write the sql connection class as well as query with can be run in place of local variables
+ * I have write the sql connection class as well as query which can be run in place of local variables
  */
 
 // GET route for get all items in  cart with calculated price
