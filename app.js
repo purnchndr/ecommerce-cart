@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+const productList = require("./products");
+const discountRule = require("./discountRule");
+
 app.use(express.json());
 
 const cart = [
@@ -32,15 +35,11 @@ const cart = [
 ];
 
 app.get("/cart", (req, res, next) => {
-  const cartPrices = cart.reduce(
-    (acc, curr, i) => {
-      acc.price += curr.price;
-      return acc;
-    },
-    { price: 0 }
-  );
-  console.log(cartPrices);
-  res.send({ cartTotal: cartPrices.price, ...cart });
+  const cartTotal = cart.reduce((acc, curr) => acc + curr.price, 0);
+  const discounts = discountRule(cart, cartTotal);
+  console.log(cart);
+  console.log(discounts);
+  res.send({ cartTotal, ...cart });
 });
 
 app.post("/cart/add", (req, res, next) => {
