@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const util = require("util");
+
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -21,3 +22,14 @@ const executeQuery = async (query) => {
     connection.end();
   }
 };
+
+/** Assume cart table has following schema
+ *CREATE TABLE cart (
+  id VARCHAR(1) PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  quantity INT(11) NOT NULL
+);
+ */
+
+module.exports = executeQuery;
