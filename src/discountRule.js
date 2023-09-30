@@ -47,7 +47,7 @@ const calculatePrices = (cart) => {
     cartTotal,
     finalPrice,
     totalDiscount,
-    ...products,
+    products,
   };
 };
 
