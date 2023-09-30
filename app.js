@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
-
+var cors = require("cors");
 const productList = require("./src/products");
 const { discountRule, calculatePrices } = require("./src/discountRule");
 const cart = require("./src/cart");
 const executeQuery = require("./src/mysqlConnection");
 const { validateItem } = require("./src/validation");
 
+app.use(cors());
 app.use(express.json());
 
 /*******IMPORTANT NOTE&***********
