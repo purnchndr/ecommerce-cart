@@ -9,4 +9,9 @@ This node backend system exposes two API's
   id can be "A" to "D"
   `{ "id" : "A",  "quantity" : 2 }`
 
+  # IMPORTANT NOTE
+
+- I am usng local local variables to store data, due to not having an active public MySQL server
+- I have write the sql connection class as well as query with can be run in place of local variables
+
 Author : Purnachandra
